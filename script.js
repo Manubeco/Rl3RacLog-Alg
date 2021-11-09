@@ -11,13 +11,7 @@ function DrawBall(x, y, r){
 }
 
 canvas.addEventListener('keydown', function(e){
-    if(e.keyCode === 37){ 
-        console.log("LEFT");
-        }
+    console.log(e );
     })
     
-DrawBall(100, 100, 60);
-
-// Eu sou um bolinho de arroz
-// De ARROZ!! 
-// hehe!
+DrawBall(100, 100, 60); 
