@@ -17,3 +17,6 @@ canvas.addEventListener('keydown', function(e){
     })
     
 DrawBall(100, 100, 60);
+
+// Eu sou um bolinho de arroz
+// De ARROZ!! 
