@@ -11,8 +11,9 @@ function DrawBall(x, y, r){
 }
 
 canvas.addEventListener('keydown', function(e){
-    if(e.keyCode == 37){ 
+    if(e.keyCode === 37){ 
         console.log("LEFT");
-    }
+        }
+    })
     
 DrawBall(100, 100, 60);
