@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
          #canvas{ 
-             border: 1px solid yellow;
+             border: 5px solid yellow;
              display: block;
              margin: 0 auto;
-             background: black;
+             background: blue;
          }
     </style>
 
@@ -19,8 +19,8 @@
     <canvas id="canvas" tabindex=0 width="1280" height="720"> </canvas>
 
     <script>
-const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
+let canvas = document.getElementById('canvas');
+let ctx = canvas.getContext('2d');
 
 let x=100;
 let y=100;
@@ -84,7 +84,7 @@ function movimento() {
     move();
     DrawBall(x, y, 60)
     requestAnimationFrame(movimento);
-}
+    }
 requestAnimationFrame(movimento);
     
     </script>
