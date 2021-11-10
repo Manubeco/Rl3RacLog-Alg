@@ -37,16 +37,16 @@ function DrawBall(x, y, r){
 
 canvas.addEventListener('keydown', function(e){
    if(e.keyCode === 37){ 
-       LEFT = true;
+       LEFT = true; console.log("Você está apertando a seta esquerda")
    }
    if(e.keyCode === 38){ 
-       UP = true;
+       UP = true;  console.log("Você está apertando a seta superior")
    }
    if(e.keyCode === 39){ 
-        RIGHT = true;
+        RIGHT = true;  console.log("Você está apertando a seta direita")
     }
     if(e.keyCode === 40){ 
-        DOWN = true;
+        DOWN = true;  console.log("Você está apertando a seta inferior")
     }
 }); 
 
@@ -86,10 +86,8 @@ function movimento() {
     requestAnimationFrame(movimento);
 }
 requestAnimationFrame(movimento);
-
+    
     </script>
+
 </body>
 </html>
-
-//Ola mundo
-// HEHE!
