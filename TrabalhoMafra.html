@@ -1,92 +1,124 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
+<head> 
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-         #canvas{ 
-             border: 5px solid yellow;
-             display: block;
-             margin: 0 auto;
-             background: blue;
-         }
+        #canvas{
+            border: 1px solid black;
+            display: block;
+            margin: 0 auto;
+            background: cadetblue;
+        }
     </style>
-
-    <title>TrabalhoMafra</title>
+    <title>teste trabalho Mafra</title>
 </head>
 <body>
-    <canvas id="canvas" tabindex=0 width="1280" height="720"> </canvas>
-
+    <canvas id="canvas" tabindex=0, width="1280", height="720"> </canvas>
     <script>
-let canvas = document.getElementById('canvas');
-let ctx = canvas.getContext('2d');
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
 
-let x=100;
-let y=100;
-let LEFT, UP, RIGHT, DOWN; 
+        let x = 620;
+        let y = 360;
+        let LEFT, UP, RIGHT, DOWN;
 
-function DrawBall(x, y, r){
-    ctx.beginPath();
-    ctx.arc(x, y, r, 0, 2*Math.PI);
-    ctx.strokeStyle = "orange";
-    ctx.stroke();
-    ctx.fillStyle = "red";  
-    ctx.fill();
-}
+        function DrawBall(x, y, r){
+            ctx.beginPath();
+            ctx.arc(x, y, r, 0, 2*Math.PI);
+            ctx.strokeStyle = "orange";
+            ctx.stroke();
+            ctx.fillStyle = "red";
+            ctx.fill();
+            ctx.closePath();
+        }
 
-canvas.addEventListener('keydown', function(e){
-   if(e.keyCode === 37){ 
-       LEFT = true; console.log("Você está apertando a seta esquerda")
-   }
-   if(e.keyCode === 38){ 
-       UP = true;  console.log("Você está apertando a seta superior")
-   }
-   if(e.keyCode === 39){ 
-        RIGHT = true;  console.log("Você está apertando a seta direita")
-    }
-    if(e.keyCode === 40){ 
-        DOWN = true;  console.log("Você está apertando a seta inferior")
-    }
-}); 
+    canvas.addEventListener('keydown', function(e){
+        if (x>80 && x<1200 && y>75 && y<640) {
+            if(e.keyCode === 37){
+             LEFT = true; console.log("Você está apertando a seta esquerda")
+            }
+            if(e.keyCode === 38){
+             UP = true; console.log("Você está apertando a seta superior")
+            }
+            if(e.keyCode === 39){
+            RIGHT = true; console.log("Você está apertando a seta direita")
+            }
+            if(e.keyCode === 40){
+            DOWN = true; console.log("Você está apertando a seta inferior")
+            }
+        }else{
+            if (x<80){alert('VOCÊ CAIU PELA ESQUERDA')
+                x = 620
+                y = 370
+                LEFT = false
+                RIGHT = false
+                UP = false
+                DOWN = false
+                }
+                if (y<75){alert('VOCÊ CAIU POR CIMA')
+                x = 620
+                y = 370
+                LEFT = false
+                RIGHT = false
+                UP = false
+                DOWN = false
+                }
+                if (x>1200){alert('VOCÊ CAIU PELA DIREITA')
+                x = 620
+                y = 370
+                LEFT = false
+                RIGHT = false
+                UP = false
+                DOWN = false
+                }
+                if (y>640){alert('VOCÊ CAIU POR BAIXO')
+                x = 620
+                y = 370
+                LEFT = false
+                RIGHT = false
+                UP = false
+                DOWN = false
+                }
+        }});
 
-canvas.addEventListener('keyup', function(e){
-    if(e.keyCode === 37){ 
-        LEFT = false;
-    }
-    if(e.keyCode === 38){ 
-        UP = false;
-    }
-    if(e.keyCode === 39){ 
-         RIGHT = false;
-     }
-     if(e.keyCode === 40){ 
-         DOWN = false;
-     }    
-})
+        canvas.addEventListener('keyup', function(e){
+            if(e.keyCode === 37){
+             LEFT = false;
+            }
+            if(e.keyCode === 38){
+             UP = false;  
+            }
+            if(e.keyCode === 39){
+            RIGHT = false;
+            }
+            if(e.keyCode === 40){
+            DOWN = false;
+        }
+        })
 
-function move(){
+function move(){ 
     if(LEFT){
-        x = x-- -10;
+        x = x-- -10
     }
     if(UP){
-        y = y-- -10;
+        y = y-- -10
     }
     if(RIGHT){
-        x = x++ +10;
+        x = x++ +10
     }
     if(DOWN){
-        y = y++ +10;
+        y = y++ +10
     }
-}
-function movimento() {
-    ctx.clearRect(0,0,canvas.clientWidth, canvas.clientHeight);
-    move();
-    DrawBall(x, y, 60)
-    requestAnimationFrame(movimento);
+}   
+    function mainLoop(){
+        ctx.clearRect(0,0,1280,720);
+        move();
+        DrawBall(x, y, 60);
+        requestAnimationFrame(mainLoop);
     }
-requestAnimationFrame(movimento);
-    
+    requestAnimationFrame(mainLoop);
+
     </script>
 
 </body>
