@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         #canvas{
-            border: 1px solid black;
+            border: 5px solid rgb(38, 60, 252);
             display: block;
             margin: 0 auto;
-            background: cadetblue;
+            background: rgb(19, 17, 49);
         }
     </style>
-    <title>teste trabalho Mafra</title>
+    <title>Trabalho Rac. lógico e Algorítmico</title>
 </head>
 <body>
     <canvas id="canvas" tabindex=0, width="1280", height="720"> </canvas>
@@ -26,15 +26,16 @@
         function DrawBall(x, y, r){
             ctx.beginPath();
             ctx.arc(x, y, r, 0, 2*Math.PI);
-            ctx.strokeStyle = "orange";
+            ctx.strokeStyle = "red";
+            ctx.lineWidth = 10
             ctx.stroke();
-            ctx.fillStyle = "red";
+            ctx.fillStyle = "#fbff2c";
             ctx.fill();
             ctx.closePath();
         }
 
     canvas.addEventListener('keydown', function(e){
-        if (x>80 && x<1200 && y>75 && y<640) {
+        if (x>70 && x<1200 && y>70 && y<640) {
             if(e.keyCode === 37){
              LEFT = true; console.log("Você está apertando a seta esquerda")
             }
@@ -48,7 +49,7 @@
             DOWN = true; console.log("Você está apertando a seta inferior")
             }
         }else{
-            if (x<80){alert('VOCÊ CAIU PELA ESQUERDA')
+            if (x<70){alert('VOCÊ CAIU PELA ESQUERDA')
                 x = 620
                 y = 370
                 LEFT = false
@@ -56,7 +57,7 @@
                 UP = false
                 DOWN = false
                 }
-                if (y<75){alert('VOCÊ CAIU POR CIMA')
+                if (y<70){alert('VOCÊ CAIU POR CIMA')
                 x = 620
                 y = 370
                 LEFT = false
@@ -64,7 +65,7 @@
                 UP = false
                 DOWN = false
                 }
-                if (x>1200){alert('VOCÊ CAIU PELA DIREITA')
+                if (x>1210){alert('VOCÊ CAIU PELA DIREITA')
                 x = 620
                 y = 370
                 LEFT = false
@@ -72,7 +73,7 @@
                 UP = false
                 DOWN = false
                 }
-                if (y>640){alert('VOCÊ CAIU POR BAIXO')
+                if (y>650){alert('VOCÊ CAIU POR BAIXO')
                 x = 620
                 y = 370
                 LEFT = false
